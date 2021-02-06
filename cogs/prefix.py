@@ -29,7 +29,7 @@ class Prefix(commands.Cog):
 
 
     @commands.command()
-    @commands.has_permissions(administrator=True)
+    @commands.has_permissions(administrator=True, manage_guild=True)
     async def prefix(self, ctx, prefix):
         with open('/home/runner/youtube-test-bot/prefixes.json', 'r') as f:
             prefixes = json.load(f)
@@ -41,4 +41,4 @@ class Prefix(commands.Cog):
         await ctx.send(f'Prefix is now {prefix}!')
 
 def setup(client):
-    client.add_cog(Prefix(client))
+    client.add_cog(Prefix(client))	
